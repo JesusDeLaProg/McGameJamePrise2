@@ -136,7 +136,7 @@ public class SimpleCharacterControl : MonoBehaviour {
 
     private void DirectUpdate()
     {
-        float v = Input.GetAxis("Vertical");
+        float v = 0.0f;//Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
 
         Transform camera = Camera.main.transform;
@@ -147,7 +147,7 @@ public class SimpleCharacterControl : MonoBehaviour {
             h *= m_walkScale;
         }
 
-        m_currentV = Mathf.Lerp(m_currentV, v, Time.deltaTime * m_interpolation);
+        //m_currentV = Mathf.Lerp(m_currentV, v, Time.deltaTime * m_interpolation);
         m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
 
         Vector3 direction = camera.forward * m_currentV + camera.right * m_currentH;
