@@ -11,10 +11,10 @@ Murs : Empêche le joueur de passer dans le couloir. Il va falloir les contourne
 
 Chaque face aura sa propre palette de couleur
 
-Porte Rouge : Face 1
-Porte Jaune : Face 2
-Porte Bleu : Face 3
-Porte Blanc : Face 4
+Porte Rouge : Face 1  
+Porte Mauve : Face 2  
+Porte Bleu : Face 3  
+Porte Blanc : Face 4  
 
 La porte verte : C'est le but !
 
