@@ -49,6 +49,6 @@ public class CameraLogic : MonoBehaviour {
         position.y = targetHeight;
 
         transform.position = position;
-        transform.LookAt(m_currentTarget.position + new Vector3(0, m_height, 0));
+        //transform.LookAt(m_currentTarget.position + new Vector3(0, m_height, 0));
     }
 }
