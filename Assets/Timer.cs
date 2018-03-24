@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour {
+public class Timer : MonoBehaviour {
 
 public Text timerText;
 private int time = 180;
 	void Start () 
 	{	
+		timerText = GetComponent<Text>();
 		StartCoroutine("Countdown");
 		timerText.CrossFadeColor(Color.red, 180, false, false);
 	}
 	
 
-	void Update () 
+	private void OnGUI()
 	{
 		if(time < 0)
 		{
