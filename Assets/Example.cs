@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Example : MonoBehaviour
     {
@@ -25,6 +26,10 @@ public class Example : MonoBehaviour
             _rotationModule = GameObject.FindGameObjectWithTag("Building").GetComponent<RotationModule>();
             spawnPoints = GameObject.FindGameObjectsWithTag("porte");
             choose = true;
+            GameObject.FindGameObjectWithTag("Score").GetComponent<Text>().text = Messenger.Messages.ContainsKey("GameMode")
+                        && Messenger.Messages["GameMode"].ToString() == "Classic"
+                        ? "Forms to deliver: " + (5 - lesPoints)
+                        : "Forms delivered: " + lesPoints;
         }
 
         private void Update()
@@ -48,10 +53,10 @@ public class Example : MonoBehaviour
                 if (target != null) _rotationModule.RubberBandToRotation(target.PlaneRotation);
             }
 
-        if (lesPoints == 5)
-        {
-            SceneManager.LoadScene("Wins");
-        }
+            if (lesPoints == 5)
+            {
+                SceneManager.LoadScene("Wins");
+            }
         }
 
         private void OnTriggerStay(Collider other)
@@ -65,6 +70,10 @@ public class Example : MonoBehaviour
                     currentPoint.GetComponent<Renderer>().material.color = new Color32((byte)((int)(r * 255)), (byte)((int)(g * 255)), (byte)((int)(b * 255)), (byte)((int)a * 255));
                     currentPoint.tag = "porte";
                     lesPoints++;
+                    GameObject.FindGameObjectWithTag("Score").GetComponent<Text>().text = Messenger.Messages.ContainsKey("GameMode")
+                        && Messenger.Messages["GameMode"].ToString() == "Classic"
+                        ? "Forms to deliver: " + (5 - lesPoints)
+                        : "Forms delivered: " + lesPoints;
                     choose = true;
                 }
 

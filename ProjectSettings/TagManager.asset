@@ -11,6 +11,7 @@ TagManager:
   - Goal
   - Timer
   - TimeAdded
+  - Score
   layers:
   - Default
   - TransparentFX

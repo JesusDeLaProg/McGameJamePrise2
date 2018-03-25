@@ -4,8 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
-    public void PlayGame() 
+    public void PlayClassic()
     {
+        if(Messenger.Messages.ContainsKey("GameMode")) Messenger.Messages.Remove("GameMode");
+        Messenger.Messages.Add("GameMode", "Classic");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
+    }
+
+    public void PlaySurvival() 
+    {
+        if(Messenger.Messages.ContainsKey("GameMode")) Messenger.Messages.Remove("GameMode");
+        Messenger.Messages.Add("GameMode", "Survival");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);    
 
     }

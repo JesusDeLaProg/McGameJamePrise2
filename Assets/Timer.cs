@@ -7,11 +7,16 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour {
 
 public Text timerText;
-public int time = 180;
+public int time;
 
 public bool IsItTimeToStop = false;
 	void Start () 
 	{	
+		if(Messenger.Messages.ContainsKey("GameMode")
+			&& Messenger.Messages["GameMode"].ToString() == "Classic")
+			{
+				time = 180;
+			}
 		timerText = GetComponent<Text>();
 		StartCoroutine("Countdown");
 		timerText.CrossFadeColor(Color.red, time, false, false);

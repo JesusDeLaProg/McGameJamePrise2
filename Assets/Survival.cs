@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class Survival : MonoBehaviour {
 
-	bool Active = true;
-	int TimeLeft = 30;
 	int TimeAdded = 15;
 	int NbGreenDoors = 0;
 	Example GameLoopSurvival;
@@ -23,7 +21,8 @@ public class Survival : MonoBehaviour {
 
 	void Update () {
 		//To finish
-		if(NbGreenDoors != Example.lesPoints)
+		if(NbGreenDoors != Example.lesPoints && Messenger.Messages.ContainsKey("GameMode")
+			&& Messenger.Messages["GameMode"].ToString() == "Survival")
 		{
 			NbGreenDoors = Example.lesPoints;
 			var t = TimeAdded - Mathf.Min(10,NbGreenDoors - 1);
