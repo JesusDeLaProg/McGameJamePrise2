@@ -53,7 +53,8 @@ using UnityEngine;
     {
         if (other.gameObject.tag == "Player")
         {
-            currentPoint.GetComponent<Renderer>().material.color = new Color32((byte)((int)r * 255), (byte)((int)g * 255), (byte)((int)b * 255), (byte)((int)a * 255));
+            Debug.Log("goal");
+            currentPoint.GetComponent<Renderer>().material.color = new Color32((byte)((int)(r * 255)), (byte)((int)(g * 255)), (byte)((int)(b * 255)), (byte)((int)a * 255));
             currentPoint.tag = "porte";
             choose = true;
 

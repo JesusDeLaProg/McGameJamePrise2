@@ -34,6 +34,7 @@ public class SimpleCharacterControl : MonoBehaviour {
     private bool m_isGrounded;
     private List<Collider> m_collisions = new List<Collider>();
 
+
     private void OnCollisionEnter(Collision collision)
     {
         ContactPoint[] contactPoints = collision.contacts;
@@ -122,6 +123,7 @@ public class SimpleCharacterControl : MonoBehaviour {
         bool walk = Input.GetKey(KeyCode.LeftShift);
 
         if (v < 0) {
+           
             if (walk) { v *= m_backwardsWalkScale; }
             else { v *= m_backwardRunScale; }
         } else if(walk)
@@ -149,6 +151,7 @@ public class SimpleCharacterControl : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
+     
             v *= m_walkScale;
             h *= m_walkScale;
         }

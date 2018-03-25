@@ -26,6 +26,7 @@ public class elevator : MonoBehaviour {
             {
                 pd.Play();
                 pd2.Play();
+                FindObjectOfType<audioclipmanager>().Play("elevator");
                 _teleportationModule.TeleportObjectTo(other.transform, point.position);
             }
         }
