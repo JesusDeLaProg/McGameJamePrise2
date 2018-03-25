@@ -14,6 +14,7 @@ public bool IsItTimeToStop = false;
 		timerText = GetComponent<Text>();
 		StartCoroutine("Countdown");
 		timerText.CrossFadeColor(Color.red, time, false, false);
+		//Algorithme de couleur TODO
 	}
 	
 
