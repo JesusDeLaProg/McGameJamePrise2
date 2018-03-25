@@ -18,3 +18,29 @@ Porte Blanc : Face 4
 
 La porte verte : C'est le but !
 
+Credit:
+
+Audio
+
+"Mischief Maker" Kevin MacLeod
+
+"Blue Ska" Kevin MacLeod
+
+"Lobby Time" Kevin MacLeod
+
+Office: https://c1.staticflickr.com/4/3817/18964941320_dfd6bcbc86_b.jpg
+
+Assets Unity
+
+
+15 original bricks texture by NevLext
+http://u3d.as/AY0
+
+15 original wood texture by NevLext
+http://u3d.as/A5L
+
+Character pack: Free sample by Supercyan
+http://u3d.as/GHN
+
+Farland skies: Simple Cumulus by Borodar
+http://u3d.as/thg
