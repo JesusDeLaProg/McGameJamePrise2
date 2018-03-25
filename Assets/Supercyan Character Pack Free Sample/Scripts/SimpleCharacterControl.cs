@@ -150,6 +150,7 @@ public class SimpleCharacterControl : MonoBehaviour {
         Transform camera = Camera.main.transform;
         if(GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>().IsItTimeToStop)
         {
+            m_animator.SetFloat("MoveSpeed", 0.0f);
             return;
         }
         if (Input.GetKey(KeyCode.LeftShift))
