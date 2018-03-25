@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 4126358663287164}
   - component: {fileID: 33679606236730726}
   - component: {fileID: 23612088096063378}
+  - component: {fileID: 65548276388150622}
   m_Layer: 0
   m_Name: porte
   m_TagString: porte
@@ -163,8 +164,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1133115671554292}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.004, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.5380001, y: 0.46000004, z: 0.11199999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4913541620341024}
@@ -333,6 +334,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65548276388150622
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1385383636796766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 1, z: 4.1745114}
+  m_Center: {x: -0.0000004683222, y: 0, z: -1.5872538}
 --- !u!65 &65559005590836582
 BoxCollider:
   m_ObjectHideFlags: 1
