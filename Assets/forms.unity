@@ -16591,7 +16591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 0}
-  time: 180
+  time: 30
   IsItTimeToStop: 0
 --- !u!114 &2107687332
 MonoBehaviour:

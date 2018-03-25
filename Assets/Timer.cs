@@ -55,6 +55,8 @@ public bool IsItTimeToStop = false;
 	void GameOver()
 	{
 		timerText.text = "Game Over";
+		if(Messenger.Messages.ContainsKey("Score")) Messenger.Messages["Score"] = Example.lesPoints.ToString();
+		else Messenger.Messages.Add("Score", Example.lesPoints.ToString());
         SceneManager.LoadScene("Fail");
     }
 
