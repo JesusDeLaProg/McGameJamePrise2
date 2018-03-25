@@ -9,6 +9,8 @@ public class RotationModule : MonoBehaviour {
 
     public float RotationSpeed;
 
+    private Quaternion? _rubberbandTarget;
+
     public Vector3? CurrentTargetRotation
     {
         get
@@ -28,6 +30,32 @@ public class RotationModule : MonoBehaviour {
                 _currentTargetRotation = null;
             }
         }
+    }
+
+    public void RubberBandToRotation(Vector3 target)
+    {
+        _rubberbandTarget = Quaternion.Euler(target);
+        StartCoroutine("DoRubberBand");
+    }
+
+    IEnumerator DoRubberBand()
+    {
+        var beginRotation = self.rotation;
+        var camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraLogic>();
+        var beginCameraDistance = camera.m_distance;
+        if(!_rubberbandTarget.HasValue) yield break;
+        yield return new WaitForSeconds(0.25f);
+        camera.m_distance = 9.0f;
+        camera.NextTarget();
+        _currentTargetRotation = _rubberbandTarget.Value;
+        _rubberbandTarget = null;
+        yield return new WaitUntil(() => !_currentTargetRotation.HasValue);
+        yield return new WaitForSeconds(1.0f);
+        _currentTargetRotation = beginRotation;
+        camera.m_distance = beginCameraDistance;
+        camera.NextTarget();
+        yield return new WaitUntil(() => _currentTargetRotation == null);
+        yield break;
     }
 
 	// Use this for initialization

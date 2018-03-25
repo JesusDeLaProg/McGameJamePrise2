@@ -6,6 +6,7 @@ using UnityEngine.Timeline;
 
 public class door : MonoBehaviour
 {
+    public bool IsObjective = false;
     private bool _wPressed;
     public Transform point;
     public PlayableDirector pd;
@@ -31,7 +32,7 @@ public class door : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (_wPressed)
+            if (_wPressed && !IsObjective)
             {
                 pd.Play();
                 pd2.Play();

@@ -6248,6 +6248,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b546d7b838c87c0448e287ae5039d65b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lesPoints: 0
+  Targets:
+  - {fileID: 1529881582}
+  - {fileID: 1105498700}
+  - {fileID: 1384624235}
+  - {fileID: 1368779992}
 --- !u!1 &935907879
 GameObject:
   m_ObjectHideFlags: 0
@@ -8555,6 +8561,7 @@ MonoBehaviour:
   m_lookAtAroundAngle: 0
   m_targets:
   - {fileID: 959349099}
+  - {fileID: 1623874047}
 --- !u!82 &1232306250
 AudioSource:
   m_ObjectHideFlags: 0
