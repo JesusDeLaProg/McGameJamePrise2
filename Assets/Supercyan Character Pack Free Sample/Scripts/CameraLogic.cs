@@ -39,7 +39,7 @@ public class CameraLogic : MonoBehaviour {
     {
         if(m_currentTarget == null) { return; }
 
-        float targetHeight = m_currentTarget.position.y + m_height;
+        float targetHeight = m_height;
         float currentRotationAngle = m_lookAtAroundAngle;
 
         Quaternion currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
@@ -49,6 +49,6 @@ public class CameraLogic : MonoBehaviour {
         position.y = targetHeight;
 
         transform.position = position;
-        transform.LookAt(m_currentTarget.position + new Vector3(0, m_height, 0));
+        //transform.LookAt(m_currentTarget.position + new Vector3(0, m_height, 0));
     }
 }
