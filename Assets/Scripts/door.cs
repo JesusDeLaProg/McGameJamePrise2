@@ -12,17 +12,31 @@ public class door : MonoBehaviour
 
     public PlayableDirector pd2;
 
+    private void Start() {
+        Teleportation.IsTeleporting = false;
+    }
 
-    private void OnTriggerStay(Collider other)
+
+    public void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            if (Input.GetKeyDown("w"))
+            if (Input.GetKeyDown("w") && !Teleportation.IsTeleporting)
             {
+                Teleportation.IsTeleporting = true;
+                StartCoroutine("WaitForEndOfTeleportation");
                 pd.Play();
                 pd2.Play();
+                Debug.Log("New pos: " + point.position);
                 other.gameObject.transform.position = point.position;
             }
         }
     }
+
+    IEnumerator WaitForEndOfTeleportation() {
+        if(!Teleportation.IsTeleporting) yield break;
+        yield return new WaitForSeconds(0.25f);
+        Teleportation.IsTeleporting = false;
+    }
+
 }
