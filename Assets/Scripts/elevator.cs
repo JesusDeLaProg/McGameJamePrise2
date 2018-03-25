@@ -25,7 +25,7 @@ public class elevator : MonoBehaviour {
     /// </summary>
     public void FixedUpdate()
     {
-        _wPressed = Input.GetKeyDown("k");
+        _wPressed = Input.GetKeyDown("w");
     }
 
 
