@@ -9,11 +9,12 @@ public class door : MonoBehaviour
 
     public Transform point;
     public PlayableDirector pd;
-
     public PlayableDirector pd2;
 
+    private TeleportationModule _teleportationModule;
+
     private void Start() {
-        Teleportation.IsTeleporting = false;
+        _teleportationModule = GameObject.FindGameObjectWithTag("Building").GetComponent<TeleportationModule>() as TeleportationModule;
     }
 
 
@@ -21,26 +22,17 @@ public class door : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (Input.GetKeyDown("w") && !Teleportation.IsTeleporting)
+            if (Input.GetKeyDown("w"))
             {
-                Teleportation.IsTeleporting = true;
-                StartCoroutine("WaitForEndOfTeleportation");
-                var building = GameObject.FindGameObjectWithTag("Building");
                 pd.Play();
                 pd2.Play();
                 Debug.Log("New pos: " + point.position);
-                other.gameObject.transform.position = point.position;
                 Debug.Log("Direction to look at: " + 
                     Vector3.Normalize(GameObject.FindGameObjectWithTag("Building").GetComponent<Transform>().position
                      - point.position));
+                _teleportationModule.TeleportObjectTo(other.transform, point.position);
             }
         }
-    }
-
-    IEnumerator WaitForEndOfTeleportation() {
-        if(!Teleportation.IsTeleporting) yield break;
-        yield return new WaitForSeconds(0.25f);
-        Teleportation.IsTeleporting = false;
     }
 
 }
