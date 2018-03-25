@@ -148,7 +148,10 @@ public class SimpleCharacterControl : MonoBehaviour {
         float h = Input.GetAxis("Horizontal");
 
         Transform camera = Camera.main.transform;
-
+        if(GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>().IsItTimeToStop)
+        {
+            return;
+        }
         if (Input.GetKey(KeyCode.LeftShift))
         {
      
