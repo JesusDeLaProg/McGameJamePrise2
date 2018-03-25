@@ -6,6 +6,7 @@ TagManager:
   tags:
   - porte
   - rotation
+  - Building
   layers:
   - Default
   - TransparentFX

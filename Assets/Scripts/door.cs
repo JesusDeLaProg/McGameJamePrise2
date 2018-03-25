@@ -9,11 +9,16 @@ public class door : MonoBehaviour
 
     public Transform point;
     public PlayableDirector pd;
-
     public PlayableDirector pd2;
 
+    private TeleportationModule _teleportationModule;
 
-    private void OnTriggerStay(Collider other)
+    private void Start() {
+        _teleportationModule = GameObject.FindGameObjectWithTag("Building").GetComponent<TeleportationModule>() as TeleportationModule;
+    }
+
+
+    public void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -21,8 +26,13 @@ public class door : MonoBehaviour
             {
                 pd.Play();
                 pd2.Play();
-                other.gameObject.transform.position = point.position;
+                Debug.Log("New pos: " + point.position);
+                Debug.Log("Direction to look at: " + 
+                    Vector3.Normalize(GameObject.FindGameObjectWithTag("Building").GetComponent<Transform>().position
+                     - point.position));
+                _teleportationModule.TeleportObjectTo(other.transform, point.position);
             }
         }
     }
+
 }
