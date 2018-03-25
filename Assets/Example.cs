@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-    public class Example : MonoBehaviour
+public class Example : MonoBehaviour
     {
         private RotationModule _rotationModule;
         GameObject[] spawnPoints;
@@ -46,6 +47,11 @@ using UnityEngine;
                 var target = Targets.FirstOrDefault(t => t.IsPositionInside(currentPoint.GetComponent<Transform>().position));
                 if (target != null) _rotationModule.RubberBandToRotation(target.PlaneRotation);
             }
+
+        if (lesPoints == 5)
+        {
+            SceneManager.LoadScene("Wins");
+        }
         }
 
         private void OnTriggerStay(Collider other)
@@ -54,6 +60,7 @@ using UnityEngine;
             {
                 if (Input.GetKeyDown("w"))
                 {
+                    FindObjectOfType<audioclipmanager>().Play("madame");
                     Debug.Log("goal");
                     currentPoint.GetComponent<Renderer>().material.color = new Color32((byte)((int)(r * 255)), (byte)((int)(g * 255)), (byte)((int)(b * 255)), (byte)((int)a * 255));
                     currentPoint.tag = "porte";

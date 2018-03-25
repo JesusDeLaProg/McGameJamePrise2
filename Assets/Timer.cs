@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour {
 
@@ -48,8 +49,8 @@ public bool IsItTimeToStop = false;
 	void GameOver()
 	{
 		timerText.text = "Game Over";
-		//TODO Call end correct end screen
-	}
+        SceneManager.LoadScene("Fail");
+    }
 
 	// Send true if you want the time to stop. Sending false will active it again.
 	void TimeToStop(bool Condition) 
