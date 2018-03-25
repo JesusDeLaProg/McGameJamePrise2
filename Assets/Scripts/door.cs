@@ -30,6 +30,10 @@ public class door : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
+        if(GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>().IsItTimeToStop)
+        {
+            return;
+        }
         if (other.gameObject.tag == "Player")
         {
             if (_wPressed && !IsObjective)

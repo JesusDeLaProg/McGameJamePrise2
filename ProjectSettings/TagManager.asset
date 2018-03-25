@@ -9,6 +9,7 @@ TagManager:
   - Building
   - PostTeleportationTarget
   - Goal
+  - Timer
   layers:
   - Default
   - TransparentFX
