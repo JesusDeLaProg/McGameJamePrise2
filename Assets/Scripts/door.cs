@@ -26,6 +26,7 @@ public class door : MonoBehaviour
             {
                 pd.Play();
                 pd2.Play();
+                FindObjectOfType<audioclipmanager>().Play("door");
                 Debug.Log("New pos: " + point.position);
                 Debug.Log("Direction to look at: " + 
                     Vector3.Normalize(GameObject.FindGameObjectWithTag("Building").GetComponent<Transform>().position
