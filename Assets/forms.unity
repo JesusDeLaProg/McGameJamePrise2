@@ -2324,10 +2324,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1036741648}
-  - {fileID: 168432185}
   - {fileID: 1652189190}
   - {fileID: 1136177612}
   - {fileID: 669698494}
+  - {fileID: 168432185}
   m_Father: {fileID: 1623874047}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4472,6 +4472,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114882824916184338, guid: e842871fa9d745b498bfaa417c03d40a,
         type: 2}
+      propertyPath: m_moveSpeed
+      value: 3
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
