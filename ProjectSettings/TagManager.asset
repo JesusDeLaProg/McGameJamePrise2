@@ -10,6 +10,7 @@ TagManager:
   - PostTeleportationTarget
   - Goal
   - Timer
+  - TimeAdded
   layers:
   - Default
   - TransparentFX

@@ -47,6 +47,19 @@ public class door : MonoBehaviour
                      - point.position));
                 _teleportationModule.TeleportObjectTo(other.transform, point.position);
             }
+            else if(_wPressed)
+            {
+                GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>().IsItTimeToStop = true;
+                var player = GameObject.FindGameObjectWithTag("Player");
+                player.GetComponent<Animator>().SetTrigger("Pickup");
+                var rotation = Quaternion.Euler(new Vector3(player.GetComponent<Transform>().rotation.x,
+                    Quaternion.LookRotation((
+                    GameObject.FindGameObjectWithTag("Building").GetComponent<Transform>().position
+                    - player.GetComponent<Transform>().position
+                )).eulerAngles.y,
+                player.GetComponent<Transform>().rotation.z));
+                player.GetComponent<Transform>().rotation = rotation;
+            }
         }
     }
 

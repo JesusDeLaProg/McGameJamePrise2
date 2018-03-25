@@ -40,11 +40,13 @@ public class RotationModule : MonoBehaviour {
 
     IEnumerator DoRubberBand()
     {
+        if(!GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>().IsItTimeToStop)
+            GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>().IsItTimeToStop = true;
         var beginRotation = self.rotation;
         var camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraLogic>();
         var beginCameraDistance = camera.m_distance;
         if(!_rubberbandTarget.HasValue) yield break;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(2f);
         camera.m_distance = 9.0f;
         camera.NextTarget();
         _currentTargetRotation = _rubberbandTarget.Value;
@@ -55,6 +57,7 @@ public class RotationModule : MonoBehaviour {
         camera.m_distance = beginCameraDistance;
         camera.NextTarget();
         yield return new WaitUntil(() => _currentTargetRotation == null);
+        GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>().IsItTimeToStop = false;
         yield break;
     }
 
