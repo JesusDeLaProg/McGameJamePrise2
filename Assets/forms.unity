@@ -6248,6 +6248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b546d7b838c87c0448e287ae5039d65b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lesPoints: 0
 --- !u!1 &935907879
 GameObject:
   m_ObjectHideFlags: 0
@@ -14404,7 +14405,7 @@ GameObject:
   - component: {fileID: 2107687334}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: Timer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14439,6 +14440,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 0}
+  time: 180
+  IsItTimeToStop: 1
 --- !u!114 &2107687332
 MonoBehaviour:
   m_ObjectHideFlags: 0

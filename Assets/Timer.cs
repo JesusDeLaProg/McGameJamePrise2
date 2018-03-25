@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour {
 
 public Text timerText;
-private int time = 180;
+public int time = 180;
+
+public bool IsItTimeToStop = false;
 	void Start () 
 	{	
 		timerText = GetComponent<Text>();
 		StartCoroutine("Countdown");
-		timerText.CrossFadeColor(Color.red, 180, false, false);
+		timerText.CrossFadeColor(Color.red, time, false, false);
 	}
 	
 
@@ -32,13 +34,32 @@ private int time = 180;
 	{
 		while(true)
 		{
-			yield return new WaitForSeconds(1);
-			time--;
+			if(IsItTimeToStop == false)
+			{
+				yield return new WaitForSeconds(1);
+				time--;
+			}
+			else{
+				yield return new WaitUntil(()=>IsItTimeToStop == false);
+			}
 		}
 	}
 
 	void GameOver()
 	{
 		timerText.text = "Game Over";
+		//TODO Call end correct end screen
+	}
+
+	// Send true if you want the time to stop. Sending false will active it again.
+	void TimeToStop(bool Condition) 
+	{
+		if(Condition)
+		{
+			IsItTimeToStop = true;
+		}
+		else {
+			IsItTimeToStop =  false;
+		}
 	}
 }

@@ -8,6 +8,7 @@ TagManager:
   - rotation
   - Building
   - PostTeleportationTarget
+  - Timer
   layers:
   - Default
   - TransparentFX
