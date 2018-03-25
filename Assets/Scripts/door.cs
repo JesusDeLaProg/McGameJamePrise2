@@ -6,7 +6,7 @@ using UnityEngine.Timeline;
 
 public class door : MonoBehaviour
 {
-
+    private bool _wPressed;
     public Transform point;
     public PlayableDirector pd;
     public PlayableDirector pd2;
@@ -15,6 +15,15 @@ public class door : MonoBehaviour
 
     private void Start() {
         _teleportationModule = GameObject.FindGameObjectWithTag("Building").GetComponent<TeleportationModule>() as TeleportationModule;
+        _wPressed = false;
+    }
+
+    /// <summary>
+    /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void FixedUpdate()
+    {
+        _wPressed = Input.GetKeyDown("w");
     }
 
 
@@ -22,7 +31,7 @@ public class door : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (Input.GetKeyDown("w"))
+            if (_wPressed)
             {
                 pd.Play();
                 pd2.Play();
