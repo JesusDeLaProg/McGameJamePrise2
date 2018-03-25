@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TeleportationModule : MonoBehaviour {
 
     private bool _isTeleporting;
+    public List<PostTeleportationTarget> Targets;
 
     public void TeleportObjectTo(Transform obj, Vector3 destination)
     {
@@ -12,6 +14,8 @@ public class TeleportationModule : MonoBehaviour {
         _isTeleporting = true;
         obj.position = destination;
         StartCoroutine("EndTeleportationInAWhile");
+        var target = Targets.FirstOrDefault(t => t.IsPlayerInside());
+        if (target != null) GetComponent<RotationModule>().CurrentTargetRotation = target.PlaneRotation;
     }
 
     public IEnumerator EndTeleportationInAWhile()
