@@ -16,7 +16,7 @@ public class Example : MonoBehaviour
         float g = 0;
         float b = 0;
         float a = 0;
-        public int lesPoints = 0;
+        public static int lesPoints = 0;
 
         public List<PostTeleportationTarget> Targets;
 
