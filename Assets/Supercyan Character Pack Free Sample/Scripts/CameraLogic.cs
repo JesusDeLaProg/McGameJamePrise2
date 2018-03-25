@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class CameraLogic : MonoBehaviour {
 
     private Transform m_currentTarget;
-    [SerializeField] private float m_distance = 2f;
+    [SerializeField] public float m_distance = 2f;
     [SerializeField] private float m_height = 1;
     [SerializeField] private float m_lookAtAroundAngle = 180;
 
@@ -48,7 +48,7 @@ public class CameraLogic : MonoBehaviour {
         position -= currentRotation * Vector3.forward * m_distance;
         position.y = targetHeight;
 
-        transform.position = position;
+        transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * 20);
         //transform.LookAt(m_currentTarget.position + new Vector3(0, m_height, 0));
     }
 }
