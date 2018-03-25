@@ -6,6 +6,8 @@ using UnityEngine.Timeline;
 
 public class elevator : MonoBehaviour {
 
+    private bool _wPressed;
+
     public Transform point;
     public PlayableDirector pd;
     public PlayableDirector pd2;
@@ -15,6 +17,15 @@ public class elevator : MonoBehaviour {
     public void Start()
     {
         _teleportationModule = GameObject.FindGameObjectWithTag("Building").GetComponent<TeleportationModule>() as TeleportationModule;
+        _wPressed = false;
+    }
+
+    /// <summary>
+    /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    public void FixedUpdate()
+    {
+        _wPressed = Input.GetKeyDown("k");
     }
 
 
@@ -22,7 +33,7 @@ public class elevator : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            if (Input.GetKeyDown("w"))
+            if (_wPressed)
             {
                 pd.Play();
                 pd2.Play();
