@@ -8,8 +8,14 @@ public class elevator : MonoBehaviour {
 
     public Transform point;
     public PlayableDirector pd;
-
     public PlayableDirector pd2;
+
+    private TeleportationModule _teleportationModule;
+
+    public void Start()
+    {
+        _teleportationModule = GameObject.FindGameObjectWithTag("Building").GetComponent<TeleportationModule>() as TeleportationModule;
+    }
 
 
     private void OnTriggerStay(Collider other)
@@ -20,7 +26,7 @@ public class elevator : MonoBehaviour {
             {
                 pd.Play();
                 pd2.Play();
-                other.gameObject.transform.position = point.position;
+                _teleportationModule.TeleportObjectTo(other.transform, point.position);
             }
         }
     }
