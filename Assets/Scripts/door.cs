@@ -30,6 +30,9 @@ public class door : MonoBehaviour
                 pd2.Play();
                 Debug.Log("New pos: " + point.position);
                 other.gameObject.transform.position = point.position;
+                Debug.Log("Direction to look at: " + 
+                    Vector3.Normalize(GameObject.FindGameObjectWithTag("Building").GetComponent<Transform>().position
+                     - point.position));
             }
         }
     }

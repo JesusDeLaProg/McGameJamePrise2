@@ -88,7 +88,12 @@ public class SimpleCharacterControl : MonoBehaviour {
     }
 
 	void Update () {
-        Debug.Log("Angle: " + Vector3.Angle(GameObject.FindGameObjectWithTag("Building").GetComponent<Transform>().position, GetComponent<Transform>().position));
+        //Debug.Log("Local pos: " + GetComponent<Transform>().localPosition);
+        //Debug.Log("Angle: " + 
+        //Vector3.Lerp(
+        //    GameObject.FindGameObjectWithTag("Building").GetComponent<Transform>().position,
+        //    GetComponent<Transform>().position, 1));
+
         m_animator.SetBool("Grounded", m_isGrounded);
 
         switch(m_controlMode)
