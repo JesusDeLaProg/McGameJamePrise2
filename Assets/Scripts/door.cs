@@ -23,12 +23,9 @@ public class door : MonoBehaviour
         {
             if (Input.GetKeyDown("w") && !Teleportation.IsTeleporting)
             {
-<<<<<<< Updated upstream
                 Teleportation.IsTeleporting = true;
                 StartCoroutine("WaitForEndOfTeleportation");
-=======
                 var building = GameObject.FindGameObjectWithTag("Building");
->>>>>>> Stashed changes
                 pd.Play();
                 pd2.Play();
                 Debug.Log("New pos: " + point.position);
