@@ -13,6 +13,7 @@ using UnityEngine;
     float g = 0;
     float b = 0;
     float a = 0;
+    public int lesPoints = 0;
 
 
 
@@ -49,14 +50,18 @@ using UnityEngine;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("goal");
+            if (Input.GetKeyDown("w"))
+            {
+                Debug.Log("goal");
             currentPoint.GetComponent<Renderer>().material.color = new Color32((byte)((int)(r * 255)), (byte)((int)(g * 255)), (byte)((int)(b * 255)), (byte)((int)a * 255));
             currentPoint.tag = "porte";
+            lesPoints++;
             choose = true;
+            }
 
         }
     }
